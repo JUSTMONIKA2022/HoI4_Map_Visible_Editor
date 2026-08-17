@@ -16,6 +16,6 @@
 ## 下载文件
 
 - `HME_0.8_Preview_Experimental.exe`：单文件程序，直接下载运行
-- `热更说明.txt`：外置补丁使用说明
+- `HME_Hot_Update_Guide_zh-CN.txt`：外置热更新补丁使用说明
 
 使用前请先备份你的 MOD。当前版本为预览实验版，建议每次大范围修改后进入游戏验证。
