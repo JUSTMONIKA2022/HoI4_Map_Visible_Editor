@@ -1,0 +1,33 @@
+HoI4 Map Editor — 热更新（补丁）使用说明
+============================================
+
+作用
+----
+不重新打包，就能用新版 .py 源码覆盖已打包 exe 内的同名模块。
+
+怎么用
+------
+1. 在 HoI4_Map_Editor.exe 同级目录建一个 patch\ 文件夹（手动新建即可）。
+2. 把要更新的 .py 文件，按【与源码相同的包路径】放进 patch\ 下：
+
+      HoI4_Map_Editor.exe
+      patch\
+         main.py                                   -> 覆盖顶层 main 模块
+         data\strategic_region_parser.py           -> 覆盖 data.strategic_region_parser
+         editors\strategic_region_dialog.py        -> 覆盖 editors.strategic_region_dialog
+
+3. 重启 exe 即生效。启动时控制台会打印：
+      [patch] 外置补丁目录已启用: ...\patch
+
+   补丁里有的文件用补丁版本，没有的用 exe 内置版本。
+   删掉 patch\ 里的文件，就回退到内置版本。
+
+限制（重要）
+------------
+1. 只能热更【纯 Python 源码 .py】。
+   若改动引入了新的第三方库（新 pip 包），或改了二进制 / Qt 资源
+   —— 补丁无效，必须重新打包。
+2. 补丁源码必须来自和打包机一致的 Python 版本（本项目为 3.13）。
+3. 包路径放错不生效；.py 有语法错误会让对应模块崩溃
+   （风险等同于直接改源码）。
+4. 改动需【重启 exe】生效，不是运行中实时替换。
